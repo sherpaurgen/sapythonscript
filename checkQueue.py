@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-# this script checks if there is Recv-Q or Send-Q on particular port number provided as arg to checkPort function
+'''
+this script checks if there is Recv-Q or Send-Q on particular port number provided as arg to checkPort function.
+if such queue is present then a message `ServiceQueueAlert Queue building up in port %s` is logged in /var/log/syslog
+'''
 import subprocess as sp
 import logging
 import sys
@@ -48,7 +51,7 @@ def checkPort(portnumber):
                 logging.error('Error while parsing csv row-trackQ.csv',exc_info=True)
 
     if stat>1:
-        logging.warning("LpQueueAlert Queue building up in port %s",portnumber)
+        logging.warning("ServiceQueueAlert Queue building up in port %s",portnumber)
 def main():
     checkPort("5505")
     checkPort("5503")
