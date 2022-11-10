@@ -3,7 +3,7 @@
 this script checks if there is Recv-Q or Send-Q on particular port number provided as arg to checkPort function.
 if such queue is present then a message `ServiceQueueAlert Queue building up in port %s` is logged in /var/log/syslog
 '''
-#!/usr/bin/python3
+
 import subprocess as sp
 import logging
 import sys
